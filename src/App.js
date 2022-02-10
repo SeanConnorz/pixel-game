@@ -3,6 +3,7 @@ import LandingPage from "./components/LandingPage";
 import NFT from "./components/NFT/Index";
 import About from "./components/About";
 import Roadmap from "./components/Roadmap";
+import Team from "./components/Team";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <NFT />
       <About />
       <Roadmap />
+      <Team />
     </div>
   );
 }
