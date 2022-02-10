@@ -23,7 +23,7 @@ export default function NFT() {
 
   return (
     <section className="flex flex-col justify-center items-center">
-      <h1 className="mb-[5rem]">Meet the characters!</h1>
+      <h1 className="mb-[5rem] text-[3rem]">Meet the characters!</h1>
       <div className="grid grid-cols-4 gap-8">
         <NftItem
           image="../../images/knight.png"
