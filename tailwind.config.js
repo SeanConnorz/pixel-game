@@ -4,6 +4,7 @@ module.exports = {
     "./src/components/LandingPage.jsx",
     "./src/components/NFT/Index.jsx",
     "./src/components/NFT/NftItem.jsx",
+    "./src/components/Roadmap.jsx",
     "./src/components/About.jsx",
     "./src/App.js",
   ],
