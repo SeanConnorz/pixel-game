@@ -1,7 +1,7 @@
 export default function Team() {
   return (
-    <section className="flex flex-col my-[20rem]">
-      <h1 className="text-[3rem]">Meet the Team... or person</h1>
+    <section className="flex flex-col items-center mt-[20rem] mb-[5rem]">
+      <h1 className="text-[3rem] mb-[8rem]">Meet the Team... or person</h1>
       <div className="max-w-sm rounded overflow-hidden shadow-lg">
         <img
           className="w-full"
