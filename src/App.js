@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
 import NFT from "./components/NFT/Index";
+import About from "./components/About";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Navbar />
       <LandingPage />
       <NFT />
+      <About />
     </div>
   );
 }
