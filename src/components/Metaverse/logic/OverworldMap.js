@@ -1,4 +1,5 @@
-import { GameObject } from "./GameObject.js";
+import { utils } from "./utils.js";
+import { Person } from "./Person.js";
 
 export class OverworldMap {
   constructor(config) {
@@ -25,13 +26,9 @@ window.OverworldMaps = {
     lowerSrc: "../../images/metaverse/maps/DemoLower.png",
     upperSrc: "../../images/metaverse/maps/DemoUpper.png",
     gameObjects: {
-      hero: new GameObject({
-        x: 5,
-        y: 6,
-      }),
-      npc1: new GameObject({
-        x: 7,
-        y: 9,
+      hero: new Person({
+        x: utils.widthGrid(5),
+        y: utils.widthGrid(6),
       }),
     },
   },
