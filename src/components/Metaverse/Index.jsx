@@ -1,5 +1,6 @@
 import { init } from "./logic/init";
 import { useState, useEffect } from "react";
+import "./styles.css";
 
 export default function Metaverse() {
   useEffect(() => {

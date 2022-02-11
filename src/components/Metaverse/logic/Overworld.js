@@ -13,5 +13,13 @@ export class Overworld {
       this.ctx.drawImage(image, 0, 0);
     };
     image.src = "../../images/metaverse/maps/DemoLower.png";
+
+    let x = 1;
+    let y = 4;
+    const hero = new Image();
+    hero.onload = () => {
+      this.ctx.drawImage(hero, 0, 0, 16, 16, x * 16, y * 16, 16, 16);
+    };
+    hero.src = "../../images/metaverse/characters/SpriteSheet.png";
   }
 }
