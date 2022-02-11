@@ -37,7 +37,7 @@ export class Sprite {
     const x = this.gameObject.x * 16;
     const y = this.gameObject.y * 16;
 
-    this.isShadowLoaded && ctx.drawImage(this.shadow, x, y);
+    this.isShadowLoaded && ctx.drawImage(this.shadow, x - 8, y - 13);
 
     this.isLoaded && ctx.drawImage(this.image, 0, 0, 16, 16, x, y, 16, 16);
   }
