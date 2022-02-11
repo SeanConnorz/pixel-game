@@ -1,3 +1,5 @@
+import { GameObject } from "./GameObject";
+
 export class Overworld {
   constructor(config) {
     this.element = config.element;
@@ -14,12 +16,19 @@ export class Overworld {
     };
     image.src = "../../images/metaverse/maps/DemoLower.png";
 
-    let x = 1;
-    let y = 4;
-    const hero = new Image();
-    hero.onload = () => {
-      this.ctx.drawImage(hero, 0, 0, 16, 16, x * 16, y * 16, 16, 16);
-    };
-    hero.src = "../../images/metaverse/characters/SpriteSheet.png";
+    const hero = new GameObject({
+      x: 5,
+      y: 6,
+    });
+
+    const npc1 = new GameObject({
+      x: 7,
+      y: 6,
+    });
+
+    setTimeout(() => {
+      hero.sprite.draw(this.ctx);
+      npc1.sprite.draw(this.ctx);
+    }, 200);
   }
 }
