@@ -3,7 +3,7 @@ import { GameObject } from "./GameObject";
 export class Person extends GameObject {
   constructor(config) {
     super(config);
-    this.movingProgressRemaining = 16;
+    this.movingProgressRemaining = 1;
 
     this.directionUpdate = {
       up: ["y", -1],
@@ -15,6 +15,11 @@ export class Person extends GameObject {
 
   update(state) {
     this.updatePosition();
+
+    if (this.movingProgressRemaining === 0 && state.arrow) {
+      this.direction = state.arrow;
+      this.movingProgressRemaining = 16;
+    }
   }
 
   updatePosition() {
