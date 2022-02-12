@@ -4,7 +4,6 @@ import "./styles.css";
 
 export default function Metaverse(props) {
   const { CONTRACT_ADDRESS, currentAccount } = props;
-  const [collection, setCollection] = useState([]);
 
   const loadCollection = () => {
     return fetch(
@@ -12,15 +11,18 @@ export default function Metaverse(props) {
     )
       .then((res) => res.json())
       .then((res) => {
+        const arr = [];
         res.assets.forEach((data) => {
-          setCollection((prev) => [...prev, data]);
+          arr.push(data.animation_url);
         });
-      });
+        return arr;
+      })
+      .then((res) => init(res[0]));
   };
 
   useEffect(() => {
     if (currentAccount) {
-      loadCollection().then(init(collection[0]));
+      loadCollection();
     }
   }, [currentAccount]);
 

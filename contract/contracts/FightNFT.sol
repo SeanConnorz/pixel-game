@@ -18,7 +18,7 @@ contract FightNFT is ERC721URIStorage {
 
         _safeMint(msg.sender, newItemId);
 
-        _setTokenURI(newItemId, "https://api.npoint.io/5fd1bd8b5c215c0c7986");
+        _setTokenURI(newItemId, "https://api.npoint.io/51063563c6036f30041c");
 
         _tokenIds.increment();
     }

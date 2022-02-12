@@ -8,9 +8,8 @@ import Metaverse from "./components/Metaverse/Index";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
-import PreviousMap from "postcss/lib/previous-map";
 
-const CONTRACT_ADDRESS = "0xb33A8d97527FA5E552b2BC8886088D2Fbb8BFEf7";
+const CONTRACT_ADDRESS = "0xa7a50bd5d8CAB33E130318d3F11f9708d34E3D2D";
 
 function App() {
   const [currentAccount, setCurrentAccount] = useState("");
