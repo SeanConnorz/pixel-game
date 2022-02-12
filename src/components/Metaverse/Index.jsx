@@ -13,14 +13,14 @@ export default function Metaverse(props) {
       .then((res) => res.json())
       .then((res) => {
         res.assets.forEach((data) => {
-          console.log(data);
+          setCollection((prev) => [...prev, data]);
         });
       });
   };
 
   useEffect(() => {
     if (currentAccount) {
-      loadCollection().then(init());
+      loadCollection().then(init(collection[0]));
     }
   }, [currentAccount]);
 

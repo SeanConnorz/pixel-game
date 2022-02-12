@@ -1,6 +1,3 @@
-import { utils } from "./utils.js";
-import { Person } from "./Person.js";
-
 export class OverworldMap {
   constructor(config) {
     this.gameObjects = config.gameObjects;
@@ -10,6 +7,9 @@ export class OverworldMap {
 
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
+
+    this.src = config.src;
+    console.log(this.src);
   }
 
   drawLowerImage(ctx) {
@@ -20,17 +20,3 @@ export class OverworldMap {
     ctx.drawImage(this.upperImage, 0, 0);
   }
 }
-
-window.OverworldMaps = {
-  DemoRoom: {
-    lowerSrc: "../../images/metaverse/maps/DemoLower.png",
-    upperSrc: "../../images/metaverse/maps/DemoUpper.png",
-    gameObjects: {
-      hero: new Person({
-        isPlayerControlled: true,
-        x: utils.widthGrid(5),
-        y: utils.widthGrid(6),
-      }),
-    },
-  },
-};
