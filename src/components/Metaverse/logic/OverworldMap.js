@@ -31,10 +31,6 @@ window.OverworldMaps = {
         x: utils.widthGrid(5),
         y: utils.widthGrid(6),
       }),
-      npc1: new Person({
-        x: utils.widthGrid(1),
-        y: utils.widthGrid(5),
-      }),
     },
   },
 };
