@@ -2,6 +2,7 @@ export class DirectionInput {
   constructor() {
     this.heldDirections = [];
 
+    // Convert keyboard input into string
     this.map = {
       KeyW: "up",
       KeyA: "left",
@@ -19,6 +20,7 @@ export class DirectionInput {
   }
 
   init() {
+    // Maps keyinput to human readable string
     document.addEventListener("keydown", (e) => {
       const dir = this.map[e.code];
       if (dir && this.heldDirections.indexOf(dir) === -1) {

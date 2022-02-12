@@ -8,6 +8,9 @@ import Metaverse from "./components/Metaverse/Index";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useEffect, useState } from "react";
+import PreviousMap from "postcss/lib/previous-map";
+
+const CONTRACT_ADDRESS = "0xb33A8d97527FA5E552b2BC8886088D2Fbb8BFEf7";
 
 function App() {
   const [currentAccount, setCurrentAccount] = useState("");
@@ -35,7 +38,7 @@ function App() {
 
   useEffect(() => {
     checkIfWalletIsConnected();
-  });
+  }, []);
 
   return (
     <Router>
@@ -43,14 +46,20 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Navbar />
-            <LandingPage account={{ currentAccount, setCurrentAccount }} />
+            <LandingPage
+              CONTRACT_ADDRESS={CONTRACT_ADDRESS}
+              account={{ currentAccount, setCurrentAccount }}
+            />
             <NFT />
             <About />
             <Roadmap />
             <Team />
           </Route>
           <Route path="/metaverse">
-            <Metaverse />
+            <Metaverse
+              currentAccount={currentAccount}
+              CONTRACT_ADDRESS={CONTRACT_ADDRESS}
+            />
           </Route>
         </Switch>
       </div>

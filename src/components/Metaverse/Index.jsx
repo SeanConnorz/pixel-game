@@ -2,10 +2,27 @@ import { init } from "./logic/init";
 import { useState, useEffect } from "react";
 import "./styles.css";
 
-export default function Metaverse() {
+export default function Metaverse(props) {
+  const { CONTRACT_ADDRESS, currentAccount } = props;
+  const [collection, setCollection] = useState([]);
+
+  const loadCollection = () => {
+    return fetch(
+      `https://testnets-api.opensea.io/api/v1/assets?owner=${currentAccount}&asset_contract_addresses=${CONTRACT_ADDRESS}`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        res.assets.forEach((data) => {
+          console.log(data);
+        });
+      });
+  };
+
   useEffect(() => {
-    init();
-  }, []);
+    if (currentAccount) {
+      loadCollection().then(init());
+    }
+  }, [currentAccount]);
 
   return (
     <main>

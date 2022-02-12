@@ -33,6 +33,7 @@ export class Overworld {
     step();
   }
 
+  // initalizes game
   init() {
     this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
 

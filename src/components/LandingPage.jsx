@@ -1,9 +1,8 @@
 import { ethers } from "ethers";
 import fightNFT from "../utils/fightNFT.json";
 
-const CONTRACT_ADDRESS = "0xdBa1e2B421D7D78e58A920CB672b8EC7DB728d5a";
-
 export default function LandingPage(props) {
+  const { CONTRACT_ADDRESS } = props;
   const { currentAccount, setCurrentAccount } = props.account;
 
   const connectWallet = async () => {
