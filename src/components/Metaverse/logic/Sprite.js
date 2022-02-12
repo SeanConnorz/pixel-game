@@ -18,15 +18,37 @@ export class Sprite {
 
     // Configuring Animation
     this.animations = config.animations || {
-      idleDown: [[0, 0]],
-      walkDown: [
+      "idle-down": [[0, 0]],
+      "idle-up": [[1, 0]],
+      "idle-left": [[2, 0]],
+      "idle-right": [[3, 0]],
+      "walk-down": [
         [0, 1],
         [0, 2],
         [0, 3],
         [0, 0],
       ],
+      "walk-up": [
+        [1, 1],
+        [1, 2],
+        [1, 3],
+        [1, 0],
+      ],
+      "walk-left": [
+        [2, 1],
+        [2, 2],
+        [2, 3],
+        [2, 0],
+      ],
+      "walk-right": [
+        [3, 1],
+        [3, 2],
+        [3, 3],
+        [3, 0],
+      ],
     };
-    this.currentAnimation = "walkDown"; // config.currentAnimation || "idleDown";
+
+    this.currentAnimation = "idle-down";
     this.currentAnimationFrame = 0;
 
     this.animationFrameLimit = config.animationFrameLimit || 16;
@@ -38,6 +60,14 @@ export class Sprite {
 
   get frame() {
     return this.animations[this.currentAnimation][this.currentAnimationFrame];
+  }
+
+  setAnimation(key) {
+    if (this.currentAnimation !== key) {
+      this.currentAnimation = key;
+      this.currentAnimationFrame = 0;
+      this.animationFrameProgress = this.animationFrameLimit;
+    }
   }
 
   updateAnimationProgress() {
