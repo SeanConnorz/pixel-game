@@ -15,6 +15,9 @@ export default function Metaverse(props) {
         console.log(err);
       })
       .then((res) => {
+        if (res.assets.length === 0) {
+          return;
+        }
         const arr = [];
         res.assets.forEach((data) => {
           arr.push(data.image_url);
