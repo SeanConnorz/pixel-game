@@ -6,18 +6,17 @@ export default function Metaverse(props) {
   const { CONTRACT_ADDRESS, currentAccount } = props;
 
   const loadCollection = () => {
-    return fetch(
+    fetch(
       `https://testnets-api.opensea.io/api/v1/assets?owner=${currentAccount}&asset_contract_addresses=${CONTRACT_ADDRESS}`
     )
       .then((res) => res.json())
       .then((res) => {
         const arr = [];
         res.assets.forEach((data) => {
-          arr.push(data.animation_url);
+          arr.push(data.image_url);
         });
-        return arr;
-      })
-      .then((res) => init(res[0]));
+        init(arr[0]);
+      });
   };
 
   useEffect(() => {
