@@ -1,6 +1,7 @@
 import { init } from "./logic/init";
 import { useState, useEffect } from "react";
 import "./styles.css";
+import swal from "sweetalert";
 
 export default function Metaverse(props) {
   const { CONTRACT_ADDRESS, currentAccount } = props;
@@ -11,11 +12,9 @@ export default function Metaverse(props) {
       `https://testnets-api.opensea.io/api/v1/assets?owner=${currentAccount}&asset_contract_addresses=${CONTRACT_ADDRESS}`
     )
       .then((res) => res.json())
-      .catch((err) => {
-        console.log(err);
-      })
       .then((res) => {
         if (res.assets.length === 0) {
+          swal("Please connect a metamask wallet with a valid token");
           return;
         }
         const arr = [];

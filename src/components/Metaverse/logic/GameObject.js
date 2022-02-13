@@ -7,7 +7,8 @@ export class GameObject {
     this.direction = config.direction || "down";
     this.sprite = new Sprite({
       gameObject: this,
-      src: config.src || "../../images/metaverse/characters/SpriteSheet.png",
+      src:
+        config.src || "../../images/metaverse/characters/boy/SpriteSheet.png",
     });
   }
 }
