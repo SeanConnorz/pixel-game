@@ -4,24 +4,29 @@ import "./styles.css";
 
 export default function Metaverse(props) {
   const { CONTRACT_ADDRESS, currentAccount } = props;
+  const [collection, setCollection] = useState();
 
   const loadCollection = () => {
-    fetch(
+    return fetch(
       `https://testnets-api.opensea.io/api/v1/assets?owner=${currentAccount}&asset_contract_addresses=${CONTRACT_ADDRESS}`
     )
       .then((res) => res.json())
+      .catch((err) => {
+        console.log(err);
+      })
       .then((res) => {
         const arr = [];
         res.assets.forEach((data) => {
           arr.push(data.image_url);
         });
         init(arr[0]);
+        return arr;
       });
   };
 
   useEffect(() => {
     if (currentAccount) {
-      loadCollection();
+      loadCollection().then((res) => setCollection(res));
     }
   }, [currentAccount]);
 

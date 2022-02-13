@@ -9,7 +9,6 @@ export class OverworldMap {
     this.upperImage.src = config.upperSrc;
 
     this.src = config.src;
-    console.log(this.src);
   }
 
   drawLowerImage(ctx) {
