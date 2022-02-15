@@ -8,6 +8,7 @@ module.exports = {
     "./src/components/Roadmap.jsx",
     "./src/components/Team.jsx",
     "./src/components/Metaverse/Index.jsx",
+    "./src/components/Metaverse/CharacterSelection.jsx",
     "./src/App.js",
   ],
   theme: {

@@ -13,12 +13,18 @@ export default function Metaverse(props) {
 
   return (
     <main>
-      <Game
+      <CharacterSelection
         collection={collection}
         setCollection={setCollection}
         CONTRACT_ADDRESS={CONTRACT_ADDRESS}
         currentAccount={currentAccount}
       />
+      {/* <Game
+        collection={collection}
+        setCollection={setCollection}
+        CONTRACT_ADDRESS={CONTRACT_ADDRESS}
+        currentAccount={currentAccount}
+      /> */}
     </main>
   );
 }
