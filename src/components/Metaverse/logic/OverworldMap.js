@@ -1,8 +1,10 @@
 import { utils } from "./utils";
+import { Person } from "./Person";
 
 export class OverworldMap {
   constructor(config) {
     this.gameObjects = config.gameObjects;
+    this.walls = config.walls || {};
 
     this.lowerImage = new Image();
     this.lowerImage.src = config.lowerSrc;

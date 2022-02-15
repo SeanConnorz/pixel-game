@@ -57,10 +57,19 @@ export class Overworld {
             src: this.src,
           }),
         },
+        walls: {
+          // "16, 16": true,
+          [utils.asGridCoord(7, 6)]: true,
+          [utils.asGridCoord(8, 6)]: true,
+          [utils.asGridCoord(7, 7)]: true,
+          [utils.asGridCoord(8, 7)]: true,
+        },
       },
     };
 
     this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
+
+    console.log(this.map.walls);
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();

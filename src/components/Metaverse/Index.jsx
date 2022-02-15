@@ -2,6 +2,7 @@ import { init } from "./logic/init";
 import { useState, useEffect } from "react";
 import "./styles.css";
 import swal from "sweetalert";
+import { currentCharacter } from "./logic/OverworldMap";
 
 export default function Metaverse(props) {
   const { CONTRACT_ADDRESS, currentAccount } = props;
