@@ -1,5 +1,4 @@
 import { utils } from "./utils";
-import { Person } from "./Person";
 
 export class OverworldMap {
   constructor(config) {
@@ -29,5 +28,10 @@ export class OverworldMap {
       utils.widthGrid(10.5) - cameraPerson.x,
       utils.widthGrid(6) - cameraPerson.y
     );
+  }
+
+  isSpaceTaken(currentX, currentY, direction) {
+    const { x, y } = utils.nextPosition(currentX, currentY, direction);
+    return this.walls[`${x}, ${y}`] || false;
   }
 }

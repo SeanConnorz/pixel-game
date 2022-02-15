@@ -3,7 +3,7 @@ import { GameObject } from "./GameObject";
 export class Person extends GameObject {
   constructor(config) {
     super(config);
-    this.movingProgressRemaining = 1;
+    this.movingProgressRemaining = 16;
 
     this.isPlayerControlled = config.isPlayerControlled || false;
 
@@ -25,7 +25,8 @@ export class Person extends GameObject {
       state.arrow
     ) {
       this.direction = state.arrow;
-      this.movingProgressRemaining = 1;
+      console.log(state.map.isSpaceTaken(this.x, this.y, this.direction));
+      this.movingProgressRemaining = 16;
     }
   }
 
