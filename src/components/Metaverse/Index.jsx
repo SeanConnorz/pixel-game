@@ -35,7 +35,7 @@ export default function Metaverse(props) {
 
   return (
     <main>
-      <div className="game-container flex items-center h-[100vh] scale-[3]">
+      <div className="game-container flex items-center h-[100vh] scale-[5]">
         <canvas
           className="game-canvas bg-white w-[352px] h-[198px]"
           width="352"

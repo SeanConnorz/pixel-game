@@ -57,6 +57,10 @@ export class Overworld {
             y: utils.widthGrid(6),
             src: this.src,
           }),
+          npc1: new Person({
+            x: utils.widthGrid(2),
+            y: utils.widthGrid(6),
+          }),
         },
         walls: {
           // "16, 16": true,
@@ -69,8 +73,7 @@ export class Overworld {
     };
 
     this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
-
-    console.log(this.map.walls);
+    this.map.mountObjects();
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();

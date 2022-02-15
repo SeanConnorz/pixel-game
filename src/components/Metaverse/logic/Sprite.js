@@ -90,7 +90,7 @@ export class Sprite {
 
   draw(ctx, cameraPerson) {
     const x = this.gameObject.x + utils.widthGrid(10.5) - cameraPerson.x;
-    const y = this.gameObject.y + utils.widthGrid(6) - cameraPerson.y;
+    const y = this.gameObject.y + utils.widthGrid(6) - cameraPerson.y - 4;
 
     this.isShadowLoaded && ctx.drawImage(this.shadow, x - 8, y - 13);
 

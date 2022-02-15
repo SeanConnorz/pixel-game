@@ -3,7 +3,7 @@ import { GameObject } from "./GameObject";
 export class Person extends GameObject {
   constructor(config) {
     super(config);
-    this.movingProgressRemaining = 16;
+    this.movingProgressRemaining = 0;
 
     this.isPlayerControlled = config.isPlayerControlled || false;
 
@@ -41,6 +41,9 @@ export class Person extends GameObject {
       if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
         return;
       }
+
+      // Ready to walk
+      state.map.moveWall(this.x, this.y, this.direction);
       this.movingProgressRemaining = 16;
     }
   }
@@ -61,6 +64,8 @@ export class Person extends GameObject {
       return;
     }
 
-    this.sprite.setAnimation(`walk-${this.direction}`);
+    if (this.isPlayerControlled) {
+      this.sprite.setAnimation(`walk-${this.direction}`);
+    }
   }
 }
