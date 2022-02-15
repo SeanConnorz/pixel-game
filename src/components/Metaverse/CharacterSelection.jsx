@@ -4,7 +4,13 @@ import swal from "sweetalert";
 
 export default function CharacterSelection(props) {
   const [collectionDisplay, setCollectionDisplay] = useState([]);
-  const { collection, setCollection, currentAccount, CONTRACT_ADDRESS } = props;
+  const {
+    setSelectedCharacter,
+    collection,
+    setCollection,
+    currentAccount,
+    CONTRACT_ADDRESS,
+  } = props;
 
   const loadCollection = () => {
     return fetch(
@@ -19,11 +25,12 @@ export default function CharacterSelection(props) {
         const arr = [];
         res.assets.forEach((data) => {
           arr.push(data.image_url);
-          console.log(data);
           setCollectionDisplay((prev) => [
             ...prev,
             <CharacterSelectionItem
+              setSelectedCharacter={setSelectedCharacter}
               image={data.animation_url}
+              sprite={data.image_url}
               name={data.name}
             />,
           ]);
@@ -34,14 +41,14 @@ export default function CharacterSelection(props) {
 
   useEffect(() => {
     if (currentAccount) {
-      loadCollection();
+      loadCollection().then((res) => setCollection(res));
     }
   }, [currentAccount]);
 
   return (
-    <section>
+    <section className="flex flex-col items-center justify-center h-[100vh]">
       <h1>Chose your character</h1>
-      {collectionDisplay}
+      <div className="flex ">{collectionDisplay}</div>
     </section>
   );
 }

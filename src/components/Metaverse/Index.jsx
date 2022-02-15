@@ -10,21 +10,31 @@ import swal from "sweetalert";
 export default function Metaverse(props) {
   const { CONTRACT_ADDRESS, currentAccount } = props;
   const [collection, setCollection] = useState();
+  const [selectedCharacter, setSelectedCharacter] = useState();
+
+  console.log(selectedCharacter);
 
   return (
     <main>
-      <CharacterSelection
-        collection={collection}
-        setCollection={setCollection}
-        CONTRACT_ADDRESS={CONTRACT_ADDRESS}
-        currentAccount={currentAccount}
-      />
-      {/* <Game
-        collection={collection}
-        setCollection={setCollection}
-        CONTRACT_ADDRESS={CONTRACT_ADDRESS}
-        currentAccount={currentAccount}
-      /> */}
+      {!selectedCharacter && (
+        <CharacterSelection
+          setSelectedCharacter={setSelectedCharacter}
+          collection={collection}
+          setCollection={setCollection}
+          CONTRACT_ADDRESS={CONTRACT_ADDRESS}
+          currentAccount={currentAccount}
+        />
+      )}
+
+      {selectedCharacter && (
+        <Game
+          selectedCharacter={selectedCharacter}
+          collection={collection}
+          setCollection={setCollection}
+          CONTRACT_ADDRESS={CONTRACT_ADDRESS}
+          currentAccount={currentAccount}
+        />
+      )}
     </main>
   );
 }
