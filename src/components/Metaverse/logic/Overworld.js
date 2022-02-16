@@ -97,13 +97,6 @@ export class Overworld {
 
     this.startGameLoop();
 
-    this.map.startCutscene([
-      { who: "hero", type: "walk", direction: "down" },
-      { who: "hero", type: "walk", direction: "left" },
-      { who: "npc1", type: "walk", direction: "left" },
-      { who: "npc1", type: "walk", direction: "left" },
-      { who: "npc1", type: "walk", direction: "left" },
-      { who: "npc1", type: "stand", direction: "left", time: 1000 },
-    ]);
+    this.map.startCutscene([{ type: "textMessage", text: "WHY HELO" }]);
   }
 }
