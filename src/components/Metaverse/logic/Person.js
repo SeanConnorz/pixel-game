@@ -46,6 +46,15 @@ export class Person extends GameObject {
       // Ready to walk
       state.map.moveWall(this.x, this.y, this.direction);
       this.movingProgressRemaining = 16;
+      this.updateSprite(state);
+    }
+
+    if (behavior.type === "stand") {
+      setTimeout(() => {
+        utils.emitEvent("PersonStandComplete", {
+          whoId: this.id,
+        });
+      }, behavior.time);
     }
   }
 
@@ -63,17 +72,10 @@ export class Person extends GameObject {
   }
 
   updateSprite(state) {
-    if (
-      this.isPlayerControlled &&
-      this.movingProgressRemaining === 0 &&
-      !state.arrow
-    ) {
-      this.sprite.setAnimation(`idle-${this.direction}`);
+    if (this.movingProgressRemaining > 0) {
+      this.sprite.setAnimation("walk-" + this.direction);
       return;
     }
-
-    if (this.isPlayerControlled) {
-      this.sprite.setAnimation(`walk-${this.direction}`);
-    }
+    this.sprite.setAnimation("idle-" + this.direction);
   }
 }

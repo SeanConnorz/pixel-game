@@ -13,7 +13,7 @@ export const utils = {
       x -= size;
     } else if (direction === "right") {
       x += size;
-    } else if (direction == "up") {
+    } else if (direction === "up") {
       y -= size;
     } else if (direction == "down") {
       y += size;

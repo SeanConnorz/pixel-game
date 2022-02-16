@@ -56,19 +56,14 @@ export class Overworld {
             x: utils.widthGrid(5),
             y: utils.widthGrid(6),
             src: this.src,
-            behaviorLoop: [
-              { type: "stand", direction: "left", time: 1200 },
-              { type: "stand", direction: "up", time: 800 },
-              { type: "stand", direction: "right", time: 500 },
-              { type: "stand", direction: "down", time: 2000 },
-            ],
           }),
           npc1: new Person({
             x: utils.widthGrid(2),
             y: utils.widthGrid(6),
             behaviorLoop: [
               { type: "walk", direction: "left" },
-              { type: "walk", direction: "up" },
+              { type: "stand", direction: "up", time: 600 },
+              { type: "walk", direction: "up", time: 600 },
               { type: "walk", direction: "right" },
               { type: "walk", direction: "down" },
             ],
@@ -76,6 +71,12 @@ export class Overworld {
           npc2: new Person({
             x: utils.widthGrid(8),
             y: utils.widthGrid(9),
+            behaviorLoop: [
+              { type: "stand", direction: "left", time: 1200 },
+              { type: "stand", direction: "up", time: 800 },
+              { type: "stand", direction: "right", time: 500 },
+              { type: "stand", direction: "down", time: 2000 },
+            ],
           }),
         },
         walls: {
