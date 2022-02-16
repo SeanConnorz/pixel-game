@@ -1,3 +1,4 @@
+import { OverworldEvent } from "./OverworldEvent";
 import { utils } from "./utils";
 
 export class OverworldMap {
@@ -45,6 +46,25 @@ export class OverworldMap {
       if (!object.isPlayerControlled) {
         object.mount(this);
       }
+    });
+  }
+
+  async startCutscene(events) {
+    this.isCutscenePlaying = true;
+
+    for (const i in events) {
+      const eventHandler = new OverworldEvent({
+        event: events[i],
+        map: this,
+      });
+      await eventHandler.init();
+    }
+
+    this.isCutscenePlaying = false;
+
+    // Reset NPC to do idle behavior
+    Object.values(this.gameObjects).forEach((object) => {
+      object.doBehaviorEvent(this);
     });
   }
 

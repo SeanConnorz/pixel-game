@@ -32,7 +32,11 @@ export class GameObject {
 
   async doBehaviorEvent(map) {
     // Dont do anything if there is a cutscene or if there is nothing to do
-    if (map.isCutscenePlaying || this.behaviorLoop.length === 0) {
+    if (
+      map.isCutscenePlaying ||
+      this.behaviorLoop.length === 0 ||
+      this.isStanding
+    ) {
       return;
     }
 
