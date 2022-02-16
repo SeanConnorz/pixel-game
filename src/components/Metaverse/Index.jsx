@@ -2,17 +2,17 @@ import ConnectWallet from "./ConnectWallet";
 import CharacterSelection from "./CharacterSelection";
 import Game from "./Game";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./styles.css";
 
 export default function Metaverse(props) {
-  const { CONTRACT_ADDRESS, currentAccount } = props;
+  const { CONTRACT_ADDRESS, currentAccount, connectWallet } = props;
   const [collection, setCollection] = useState();
   const [selectedCharacter, setSelectedCharacter] = useState();
 
   const renderComponent = () => {
     if (!currentAccount && !selectedCharacter) {
-      return <ConnectWallet />;
+      return <ConnectWallet connectWallet={connectWallet} />;
     } else if (!selectedCharacter) {
       return (
         <CharacterSelection

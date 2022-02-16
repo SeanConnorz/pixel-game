@@ -1,4 +1,5 @@
 import CharacterSelectionItem from "./CharacterSelectionItem";
+
 import { useState, useEffect } from "react";
 import swal from "sweetalert";
 
@@ -19,7 +20,6 @@ export default function CharacterSelection(props) {
       .then((res) => res.json())
       .then((res) => {
         if (res.assets.length === 0) {
-          swal("Please connect a metamask wallet with a valid token");
           return;
         }
         const arr = [];
@@ -47,7 +47,11 @@ export default function CharacterSelection(props) {
 
   return (
     <section className="flex flex-col items-center justify-center h-[100vh]">
-      <h1>Chose your character</h1>
+      {collectionDisplay.length > 0 ? (
+        <h1>Chose your character</h1>
+      ) : (
+        <h1>Please Connect a Wallet With a Valid Token</h1>
+      )}
       <div className="flex ">{collectionDisplay}</div>
     </section>
   );

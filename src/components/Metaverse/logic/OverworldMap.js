@@ -11,6 +11,8 @@ export class OverworldMap {
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
 
+    this.isCutscenePlaying = false;
+
     this.src = config.src;
   }
 
@@ -36,10 +38,12 @@ export class OverworldMap {
   }
 
   mountObjects() {
-    Object.values(this.gameObjects).forEach((o) => {
+    Object.keys(this.gameObjects).forEach((key) => {
+      let object = this.gameObjects[key];
+      object.id = key;
       // TODO: determine if this object should actually mount
-      if (!o.isPlayerControlled) {
-        o.mount(this);
+      if (!object.isPlayerControlled) {
+        object.mount(this);
       }
     });
   }
