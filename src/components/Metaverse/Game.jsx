@@ -14,7 +14,7 @@ export default function ConnectWallet(props) {
 
   return (
     <section>
-      <div className="game-container flex items-center h-[100vh] scale-[5]">
+      <div className="game-container flex flex-col justify-center items-center h-[100vh] scale-[4]">
         <canvas
           className="game-canvas bg-white w-[352px] h-[198px]"
           width="352"

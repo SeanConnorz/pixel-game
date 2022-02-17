@@ -20,6 +20,17 @@ export const utils = {
     }
     return { x, y };
   },
+  oppositeDirection(direction) {
+    if (direction === "left") {
+      return "right";
+    } else if (direction === "right") {
+      return "left";
+    } else if (direction === "up") {
+      return "down";
+    } else if (direction == "down") {
+      return "up";
+    }
+  },
   emitEvent(name, detail) {
     const event = new CustomEvent(name, {
       detail,

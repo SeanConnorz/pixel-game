@@ -52,6 +52,15 @@ export class Overworld {
     });
   }
 
+  bindHeroPositionCheck() {
+    document.addEventListener("PersonWalkingComplete", (e) => {
+      if (e.detail.whoId === "hero") {
+        // Hero's position has changed
+        this.map.checkForFootstepCutscene();
+      }
+    });
+  }
+
   // initalizes game
   init() {
     window.OverworldMaps = {
@@ -88,7 +97,7 @@ export class Overworld {
             talking: [
               {
                 events: [
-                  { type: "textMessage", text: "WHY HELO" },
+                  { type: "textMessage", text: "WHY HELO", faceHero: "npc2" },
                   { type: "textMessage", text: "Please leave." },
                 ],
               },
@@ -102,6 +111,16 @@ export class Overworld {
           [utils.asGridCoord(7, 7)]: true,
           [utils.asGridCoord(8, 7)]: true,
         },
+        cutsceneSpaces: {
+          [utils.asGridCoord(7, 4)]: [
+            {
+              events: [
+                { type: "textMessage", text: "You cant go in there" },
+                { who: "hero", type: "walk", direction: "down" },
+              ],
+            },
+          ],
+        },
       },
     };
 
@@ -109,6 +128,7 @@ export class Overworld {
     this.map.mountObjects();
 
     this.bindActionInput();
+    this.bindHeroPositionCheck();
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();
