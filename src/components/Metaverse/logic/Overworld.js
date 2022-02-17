@@ -62,6 +62,13 @@ export class Overworld {
   }
 
   startMap(mapConfig) {
+    this.map = new OverworldMap(mapConfig);
+    this.map.overworld = this;
+    this.map.mountObjects();
+  }
+
+  // initalizes game
+  init() {
     window.OverworldMaps = {
       DemoRoom: {
         lowerSrc: "../../images/metaverse/maps/DemoLower.png",
@@ -119,7 +126,7 @@ export class Overworld {
               ],
             },
           ],
-          [utils.asGridCoord(7, 4)]: [
+          [utils.asGridCoord(5, 10)]: [
             {
               events: [{ type: "changeMap", map: "Kitchen" }],
             },
@@ -137,20 +144,13 @@ export class Overworld {
             src: this.src,
           }),
           npc1: new Person({
-            x: utils.widthGrid(5),
+            x: utils.widthGrid(8),
             y: utils.widthGrid(6),
           }),
         },
       },
     };
 
-    this.map = new OverworldMap(mapConfig);
-    this.map.overworld = this;
-    this.map.mountObjects();
-  }
-
-  // initalizes game
-  init() {
     this.startMap(window.OverworldMaps.DemoRoom);
 
     this.bindActionInput();
