@@ -1,1 +1,10 @@
+.televesion {
+  height: 50rem;
+}
 
+@media screen and (max-width: 1900px) {
+  .televesion {
+    height: clamp(10rem, 25vh, 50rem);
+    font-size: clamp(0.8rem, 0.8vw, 2rem);
+  }
+}
