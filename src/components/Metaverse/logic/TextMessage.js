@@ -13,8 +13,8 @@ export class TextMessage {
     this.element.classList.add("TextMessage");
 
     this.element.innerHTML = `
-    <p class="TextMessage_p">${this.text}</p>
-    <button class="TextMessage_button">Next</button>
+    <p class="TextMessage_p text-[0.3rem]">${this.text}</p>
+    <button class="text-[0.5rem]">Next</button>
     `;
 
     this.element.querySelector("button").addEventListener("click", () => {

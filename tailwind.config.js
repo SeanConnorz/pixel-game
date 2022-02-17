@@ -10,6 +10,7 @@ module.exports = {
     "./src/components/Metaverse/Index.jsx",
     "./src/components/Metaverse/CharacterSelection.jsx",
     "./src/components/Metaverse/ConnectWallet.jsx",
+    "./src/components/Metaverse/logic/TextMessage.js",
     "./src/components/Metaverse/Game.jsx",
     "./src/App.js",
   ],

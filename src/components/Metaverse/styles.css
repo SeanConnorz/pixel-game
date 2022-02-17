@@ -1,3 +1,10 @@
 .game-container canvas {
   image-rendering: pixelated;
 }
+
+.TextMessage {
+  width: 100%;
+  text-align: center;
+  color: rgb(44, 44, 44);
+  background-color: rgb(223, 223, 223);
+}
