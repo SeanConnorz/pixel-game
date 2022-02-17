@@ -1,0 +1,3 @@
+.about-info {
+  font-size: clamp(0.8rem, 0.8vw, 2rem);
+}

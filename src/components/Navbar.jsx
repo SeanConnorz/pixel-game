@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import "../styles/Navbar.css";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-center w-full p-8">
-      <div className="flex justify-around w-[50%]">
+    <nav className="navbar flex justify-center w-full p-8">
+      <div className="flex justify-between w-full md:w-[50%] lg:w-[50%]">
         <h1 className="cursor-pointer hover:underline decoration-pink-500 underline-offset-4">
           Home
         </h1>

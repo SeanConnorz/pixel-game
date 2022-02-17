@@ -1,4 +1,5 @@
 import NftItem from "./NftItem";
+import "../../styles/NFT.css";
 
 export default function NFT() {
   const exotic = {
@@ -23,8 +24,8 @@ export default function NFT() {
 
   return (
     <section className="flex flex-col justify-center items-center">
-      <h1 className="mb-[5rem] text-[3rem]">Meet the characters!</h1>
-      <div className="grid grid-cols-4 gap-8">
+      <h1 className="nft-title mb-[5rem] text-[3rem]">Meet the characters!</h1>
+      <div className="grid sm:grid-cols-1 md:grid-cols-4 gap-16">
         <NftItem
           image="../../images/knight.png"
           name="samuri"
