@@ -2,6 +2,7 @@ import { OverworldMap } from "./OverworldMap";
 import { DirectionInput } from "./DirectionInput";
 import { utils } from "./utils.js";
 import { Person } from "./Person.js";
+import { KeyPressListener } from "./KeyPressListener";
 
 export class Overworld {
   constructor(config) {
@@ -44,6 +45,13 @@ export class Overworld {
     step();
   }
 
+  bindActionInput() {
+    new KeyPressListener("Enter", () => {
+      // Is there a person here to talk to?
+      this.map.checkForActionCutscene();
+    });
+  }
+
   // initalizes game
   init() {
     window.OverworldMaps = {
@@ -77,6 +85,14 @@ export class Overworld {
               { type: "stand", direction: "right", time: 500 },
               { type: "stand", direction: "down", time: 2000 },
             ],
+            talking: [
+              {
+                events: [
+                  { type: "textMessage", text: "WHY HELO" },
+                  { type: "textMessage", text: "Please leave." },
+                ],
+              },
+            ],
           }),
         },
         walls: {
@@ -91,6 +107,8 @@ export class Overworld {
 
     this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
     this.map.mountObjects();
+
+    this.bindActionInput();
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();
