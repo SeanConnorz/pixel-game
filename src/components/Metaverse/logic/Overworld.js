@@ -61,8 +61,7 @@ export class Overworld {
     });
   }
 
-  // initalizes game
-  init() {
+  startMap(mapConfig) {
     window.OverworldMaps = {
       DemoRoom: {
         lowerSrc: "../../images/metaverse/maps/DemoLower.png",
@@ -120,12 +119,39 @@ export class Overworld {
               ],
             },
           ],
+          [utils.asGridCoord(7, 4)]: [
+            {
+              events: [{ type: "changeMap", map: "Kitchen" }],
+            },
+          ],
+        },
+      },
+      Kitchen: {
+        lowerSrc: "../../images/metaverse/maps/KitchenLower.png",
+        upperSrc: "../../images/metaverse/maps/KitchenUpper.png",
+        gameObjects: {
+          hero: new Person({
+            isPlayerControlled: true,
+            x: utils.widthGrid(5),
+            y: utils.widthGrid(6),
+            src: this.src,
+          }),
+          npc1: new Person({
+            x: utils.widthGrid(5),
+            y: utils.widthGrid(6),
+          }),
         },
       },
     };
 
-    this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
+    this.map = new OverworldMap(mapConfig);
+    this.map.overworld = this;
     this.map.mountObjects();
+  }
+
+  // initalizes game
+  init() {
+    this.startMap(window.OverworldMaps.DemoRoom);
 
     this.bindActionInput();
     this.bindHeroPositionCheck();

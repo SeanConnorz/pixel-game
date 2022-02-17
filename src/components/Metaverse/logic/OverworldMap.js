@@ -3,6 +3,7 @@ import { utils } from "./utils";
 
 export class OverworldMap {
   constructor(config) {
+    this.overworld = null;
     this.gameObjects = config.gameObjects;
     this.cutsceneSpaces = config.cutsceneSpaces || {};
     this.walls = config.walls || {};
